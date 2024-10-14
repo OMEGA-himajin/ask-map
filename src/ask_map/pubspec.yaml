@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  photo_view: 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -88,3 +89,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+    # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/
