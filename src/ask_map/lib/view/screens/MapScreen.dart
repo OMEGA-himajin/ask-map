@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:ask_map/view/widgets/SearchBarButton.dart';
 import 'SearchScreen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -108,15 +108,7 @@ class _MapScreen extends State<MapScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: ElevatedButton.icon(
-          icon: const Icon(Icons.search),
-          label: const Text('検索'),
-          style: ElevatedButton.styleFrom(
-              shape: const StadiumBorder(),
-              foregroundColor: Colors.grey,
-              fixedSize: const Size.fromWidth(double.maxFinite)),
-          onPressed: () {},
-        ),
+        title: SearchBarButton(),
         actions: [
           IconButton(
             onPressed: () {},
