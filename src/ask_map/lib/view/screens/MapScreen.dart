@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+
 import 'package:ask_map/view/widgets/SearchBarButton.dart';
+import 'package:ask_map/view/widgets/MapMarker.dart';
+import 'package:ask_map/view/widgets/MapViewer.dart';
+import 'package:ask_map/view/widgets/InfoButton.dart';
 import 'SearchScreen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -109,11 +113,8 @@ class _MapScreen extends State<MapScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: SearchBarButton(),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.info_outline),
-          ),
+        actions: const [
+          InfoButton(),
         ],
       ),
       body: LayoutBuilder(
@@ -124,20 +125,14 @@ class _MapScreen extends State<MapScreen> {
 
           return Stack(
             children: [
-              Container(
-                child: PhotoView(
-                  controller: photoController,
-                  imageProvider: image,
-                  initialScale: defaultImageScale,
-                  minScale: PhotoViewComputedScale.covered,
-                ),
-              ),
-              Positioned(
-                child: Image.asset("images/marker.png"),
-                left: markerLeft,
-                top: markerTop,
-                width: markerSize,
-              ),
+              MapViewer(
+                  photoController: photoController,
+                  image: image,
+                  defaultImageScale: defaultImageScale),
+              MapMarker(
+                  markerLeft: markerLeft,
+                  markerTop: markerTop,
+                  markerSize: markerSize),
             ],
           );
         },
