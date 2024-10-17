@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
-import 'package:ask_map/view/widgets/SearchBarButton.dart';
 import 'package:ask_map/view/widgets/MapMarker.dart';
 import 'package:ask_map/view/widgets/MapViewer.dart';
-import 'package:ask_map/view/widgets/InfoButton.dart';
+import 'package:ask_map/view/widgets/MapScreenAppBar.dart';
+import 'package:ask_map/view/widgets/FloorSelector.dart';
 import 'SearchScreen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -19,11 +19,11 @@ class MapScreen extends StatefulWidget {
 const DEFAULT_MARKER_SIZE = 50.0;
 
 class _MapScreen extends State<MapScreen> {
-  final image = Image.asset("images/map.png").image;
+  late ImageProvider image;
   final photoController = PhotoViewController();
 
   // Default map image scale value.
-  double defaultImageScale = 0.75;
+  double defaultImageScale = 0.095;
 
   // Size of the area for displaying the map's image.
   late double viewportWidth;
@@ -54,6 +54,13 @@ class _MapScreen extends State<MapScreen> {
       imageWidth = info.image.width.toDouble();
       imageHeight = info.image.height.toDouble();
     }));
+  }
+
+  void _loadImage(int floor) {
+    setState(() {
+      image = AssetImage('images/${floor}F.drawio.png');
+      _resolveImageProvider();
+    });
   }
 
   @override
@@ -103,6 +110,8 @@ class _MapScreen extends State<MapScreen> {
       },
     );
 
+    image = AssetImage('images/1F.drawio.png');
+
     super.initState();
   }
 
@@ -110,13 +119,7 @@ class _MapScreen extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: SearchBarButton(),
-        actions: const [
-          InfoButton(),
-        ],
-      ),
+      appBar: MapScreenAppBar.appBar(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           // Size of the area to display the map image.
@@ -133,6 +136,15 @@ class _MapScreen extends State<MapScreen> {
                   markerLeft: markerLeft,
                   markerTop: markerTop,
                   markerSize: markerSize),
+              Positioned(
+                top: 50, // Adjust the position as needed
+                left: 50, // Adjust the position as needed
+                child: FloorSelector(
+                  onFloorSelected: (floor) {
+                    _loadImage(floor);
+                  },
+                ),
+              ),
             ],
           );
         },
