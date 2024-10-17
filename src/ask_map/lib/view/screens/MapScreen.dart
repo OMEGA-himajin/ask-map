@@ -132,10 +132,10 @@ class _MapScreen extends State<MapScreen> {
                   photoController: photoController,
                   image: image,
                   defaultImageScale: defaultImageScale),
-              MapMarker(
-                  markerLeft: markerLeft,
-                  markerTop: markerTop,
-                  markerSize: markerSize),
+              // MapMarker(
+              //     markerLeft: markerLeft,
+              //     markerTop: markerTop,
+              //     markerSize: markerSize),
               Positioned(
                 top: 50, // Adjust the position as needed
                 left: 50, // Adjust the position as needed
