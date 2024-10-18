@@ -1,25 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:ask_map/view/widgets/CommonAppBar.dart';
 
-class Infoscreen extends StatelessWidget {
-  const Infoscreen({
-    super.key,
-  });
+class InfoScreen extends StatelessWidget {
+  final List<Map<String, String>> items = [
+    {'title': 'ASK-MAP', 'subtitle': 'ver'},
+    {'title': 'LICENSE', 'subtitle': ''},
+    {'title': 'FeedBack', 'subtitle': ''}
+  ];
+  InfoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView(
-        children: const <Widget>[
-          ListTile(
-            title: Text('愛知総合工科マップ'),
-            subtitle: Text('ASK-MAP'),
+      appBar: CommonAppBar.appBar(),
+      body: Column(
+        children: [
+          Expanded(
+            flex: 6,
+            child: Container(
+              color: Colors.blue,
+              child: Center(
+                child: Text(
+                  'Container',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ),
+            ),
           ),
-          ListTile(
-            title: Text('ライセンス/LISENSE'),
+          Expanded(
+            flex: 2,
+            child: ListTile(
+              title: Text("ASK-MAP"),
+              subtitle: Text("ver"),
+              onTap: () {
+                // _handleTap(context, 0);
+              },
+            ),
           ),
-          ListTile(
-            title: Text('フィードバック/Feedback'),
+          Expanded(
+            flex: 2,
+            child: ListTile(
+              title: Text("ASK-MAP"),
+              subtitle: Text("ver"),
+              onTap: () {
+                // _handleTap(context, 1);
+              },
+            ),
           ),
         ],
       ),
