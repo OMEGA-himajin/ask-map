@@ -1,0 +1,15 @@
+services:
+  react-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: ask_map_react
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    ports:
+      - "3000:3000"
+    environment:
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true
