@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
-import 'package:ask_map/view/widgets/MapMarker.dart';
+// import 'package:ask_map/view/widgets/MapMarker.dart';
 import 'package:ask_map/view/widgets/MapViewer.dart';
 import 'package:ask_map/view/widgets/MapScreenAppBar.dart';
 import 'package:ask_map/view/widgets/FloorSelector.dart';
-import 'SearchScreen.dart';
+// import 'SearchScreen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key, required this.title});
