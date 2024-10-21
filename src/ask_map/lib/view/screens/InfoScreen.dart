@@ -19,7 +19,7 @@ class InfoScreen extends StatelessWidget {
             flex: 6,
             child: Container(
               color: Colors.blue,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Container',
                   style: TextStyle(color: Colors.white, fontSize: 24),
@@ -30,8 +30,8 @@ class InfoScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: ListTile(
-              title: Text("ASK-MAP"),
-              subtitle: Text("ver"),
+              title: const Text("ASK-MAP"),
+              subtitle: const Text("ver"),
               onTap: () {
                 // _handleTap(context, 0);
               },
@@ -40,8 +40,8 @@ class InfoScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: ListTile(
-              title: Text("ASK-MAP"),
-              subtitle: Text("ver"),
+              title: const Text("ASK-MAP"),
+              subtitle: const Text("ver"),
               onTap: () {
                 // _handleTap(context, 1);
               },

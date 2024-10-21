@@ -110,7 +110,7 @@ class _MapScreen extends State<MapScreen> {
       },
     );
 
-    image = AssetImage('images/1F.drawio.png');
+    image = const AssetImage('images/1F.drawio.png');
 
     super.initState();
   }

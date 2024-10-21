@@ -14,11 +14,11 @@ class _SearchScreen extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar.appBar(),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'You have pushed the button this many times:',
             ),
           ],

@@ -15,10 +15,10 @@ class MapMarker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      child: Image.asset("images/marker.png"),
       left: markerLeft,
       top: markerTop,
       width: markerSize,
+      child: Image.asset("images/marker.png"),
     );
   }
 }
